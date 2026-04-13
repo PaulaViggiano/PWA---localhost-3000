@@ -1,14 +1,12 @@
-import {Titulo} from '../../Components/Titulo/Titulo';
+import Titulo from '../../Components/Titulo/Titulo.jsx';
 import { useState } from 'react';
 
 function Home() {
  /*  const [count, setCount] = useState(0); */
 
-  return (
-    <div>
-     <Titulo/>
-    </div>
-  );
+  return <>
+    <Titulo />
+  </>
 }
 
 export default Home;
