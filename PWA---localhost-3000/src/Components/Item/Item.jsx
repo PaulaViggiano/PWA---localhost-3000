@@ -27,7 +27,15 @@ const Item = ({item}) => {
             </div>
 
             <div className={styles.acciones}>
-                <Boton />
+                <Boton texto={Vista ? 'Pendiente' : 'Vista'}
+                    onClick={() => cambioEstado(Id)}
+                />
+
+
+                <Boton texto={'Eliminar'}
+                    onClick={() => Eliminar(Id)}
+                    clase='btn-danger'
+                />
             </div>
         </div>
     )
