@@ -5,7 +5,7 @@ const Item = ({item}) => {
     // Obtengo cada propiedad de Item(pelicula/serie) en variables individuales
     const{ Titulo, Director, Anio, Genero, Popularidad, Tipo, Vista, Imagen, Id } = item;
     // URL dinamica para imagen
-    const url = `https://picsum.photos/seed/${Id}/200/300`;
+    const url = `https://picsum.photos/seed/${Id}/1000/300`;
 
 
     return(
