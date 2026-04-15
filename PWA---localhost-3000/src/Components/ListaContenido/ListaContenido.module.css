@@ -1,0 +1,28 @@
+.seccionLista {
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.tituloLista {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cuadricula {
+  display: grid;
+  /* Define el tamaño de las tarjetas en la cuadrícula */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.contenedorVacio {
+  padding: 2rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px dashed #dee2e6;
+  color: #6c757d;
+}
