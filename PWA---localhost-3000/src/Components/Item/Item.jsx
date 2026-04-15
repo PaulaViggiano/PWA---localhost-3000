@@ -1,7 +1,7 @@
 import styles from './Item.module.css';
 import Boton from '../Boton/Boton.jsx';
 
-const Item = ({item}) => {
+const Item = ({item, onEliminar}) => {
     // Obtengo cada propiedad de Item(pelicula/serie) en variables individuales
     const{ Titulo, Director, Anio, Genero, Popularidad, Tipo, Vista, Imagen, Id } = item;
     // URL dinamica para imagen
@@ -27,13 +27,14 @@ const Item = ({item}) => {
             </div>
 
             <div className={styles.acciones}>
-                <Boton texto={Vista ? 'Pendiente' : 'Vista'}
+                <Boton texto={Vista ? 'Volver a ver' : 'Ver'}
                     onClick={() => cambioEstado(Id)}
                 />
 
 
-                <Boton texto={'Eliminar'}
-                    onClick={() => Eliminar(Id)}
+                <Boton
+                    texto='Eliminar'
+                    onClick={() => onEliminar(Id)}
                     clase='btn-danger'
                 />
             </div>

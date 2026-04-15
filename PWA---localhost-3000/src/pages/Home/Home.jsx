@@ -20,6 +20,15 @@ const Home = () => {
   const porVer = items.filter(item => !item.Vista);
   const vistas = items.filter(item => item.Vista);
 
+  const eliminarItem = (id) => {
+    const confirmar = window.confirm("Estás seguro de eliminar este elemento?");
+
+    if(confirmar){
+      const nuevaLista = items.filter(item => item.Id !== id);
+      setItems(nuevaLista);
+    }
+  }
+
   return (
     <main className={styles.homeContainer}>
       {/* FILA 1: CONTENIDO POR VER */}
@@ -27,6 +36,7 @@ const Home = () => {
         titulo='Por ver'
         items={porVer}
         mensajeVacio='No tienes peliculas o series pendientes. Agrega una!'
+        onEliminar={eliminarItem}
       />
 
       {/* FILA 2: CONTENIDO VISTO */}
@@ -34,6 +44,7 @@ const Home = () => {
         titulo='Ya vistas'
         items={vistas}
         mensajeVacio='Aún no has visto nada. Mira una pelicula!'
+        onEliminar={eliminarItem}
       />
 
     </main>

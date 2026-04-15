@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ListaContenido.module.css';
 import Item from '../Item/Item.jsx';
 
-const ListaContenido = ({titulo, items, mensajeVacio}) => {
+const ListaContenido = ({titulo, items, mensajeVacio, onEliminar}) => {
 
     return(
         <section className={styles.seccionLista}>
@@ -15,7 +15,11 @@ const ListaContenido = ({titulo, items, mensajeVacio}) => {
             ) : (
                 <div className={styles.cuadricula}>
                     {items.map((item) => (
-                        <Item key={item.Id} item={item} />
+                        <Item 
+                            key={item.Id}
+                            item={item} 
+                            onEliminar ={onEliminar}
+                        />
                     ))}
                 </div>
                 
