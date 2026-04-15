@@ -27,7 +27,7 @@ const Item = ({item}) => {
             </div>
 
             <div className={styles.acciones}>
-                {/* UTILIZAMOS COMPONENTE BOTON PARA DIFERENTES ACCIONES */}
+                <Boton />
             </div>
         </div>
     )
