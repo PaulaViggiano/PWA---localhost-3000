@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import { initialData } from '../../Data/initialData';
+import  ListaContenido  from '../../Components/ListaContenido/ListaContenido';
 
 const Home = () => {
   // Inicializamo estado.
@@ -15,13 +16,11 @@ const Home = () => {
     localStorage.setItem('peliculas-series', JSON.stringify(items));
   }, [items]);
 
-  return <>
-    {/* 
-      <Titulo />
-
-      <Peliculas /> se renderiza los componentes con lo que hay en localStorage
-    */}
-  </>
+  return (
+    <>
+      <ListaContenido items={items} />
+    </>
+  )
 }
 
 export default Home;
