@@ -1,0 +1,36 @@
+.botonBase {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff; /* Color primario por defecto */
+  color: white;
+}
+
+.botonBase:hover {
+  background-color: #0056b3;
+}
+
+.botonBase:active {
+  transform: scale(0.98);
+}
+
+/* Variante para eliminar (Danger) */
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+/* Variante para estados secundarios o edición */
+.btn-secondary {
+  background-color: #6c757d;
+}
