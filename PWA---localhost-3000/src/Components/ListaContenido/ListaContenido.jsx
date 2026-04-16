@@ -1,4 +1,4 @@
-import React from 'react';  
+import React from 'react';
 import styles from './ListaContenido.module.css';
 import Item from '../Item/Item.jsx';
 
@@ -13,7 +13,7 @@ const ListaContenido = ({titulo, items, mensajeVacio, onEliminar}) => {
                     <p>{mensajeVacio}</p>
                 </div>
             ) : (
-                <div className={styles.cuadricula}>
+                <div className={styles.carrusel}>
                     {items.map((item) => (
                         <Item 
                             key={item.Id}
