@@ -1,7 +1,9 @@
-function Titulo() {
+import styles from './Titulo.module.css'
+
+function Titulo({texto}) {
 
   return <>
-    <h1>HOLA</h1>
+    <h1 className={styles.titulo}>{texto}</h1>
   </>
 }
 

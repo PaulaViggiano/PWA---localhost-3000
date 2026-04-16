@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import { initialData } from '../../Data/initialData';
+import Titulo from '../../Components/Titulo/Titulo';
 
 const Home = () => {
   // Inicializamo estado.
@@ -16,8 +17,8 @@ const Home = () => {
   }, [items]);
 
   return <>
-    {/* 
-      <Titulo />
+     {/*
+      <Titulo texto={'Nuestra bella pagina'}/>
 
       <Peliculas /> se renderiza los componentes con lo que hay en localStorage
     */}
