@@ -1,28 +1,28 @@
 .seccionLista {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem; /* Reducimos el margen inferior */
   padding: 0 1rem;
+  width: 100%;
+  overflow: hidden;
 }
 
-.tituloLista {
-  font-size: 1.5rem;
-  color: #2c3e50;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
+.carrusel {
+  display: flex;
+  gap: 15px; /* Reducimos el espacio entre items */
+  overflow-x: auto;
+  padding: 5px 5px 15px 5px; /* Reducimos el padding vertical */
+  scroll-behavior: smooth;
+  
+  /* OCULTAR BARRA DE DESPLAZAMIENTO */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.cuadricula {
-  display: grid;
-  /* Define el tamaño de las tarjetas en la cuadrícula */
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+/* Ocultar barra en Chrome, Safari y Opera */
+.carrusel::-webkit-scrollbar {
+  display: none;
 }
 
-.contenedorVacio {
-  padding: 2rem;
-  text-align: center;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  border: 1px dashed #dee2e6;
-  color: #6c757d;
+/* Ajuste de altura menor para los items del carrusel */
+.carrusel > div {
+  flex: 0 0 240px; /* Reducimos el ancho base de 280px a 240px */
 }
