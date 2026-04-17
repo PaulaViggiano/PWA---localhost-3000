@@ -2,6 +2,7 @@ import React,{ useState, useEffect } from 'react';
 import { initialData } from '../../Data/initialData';
 import  ListaContenido  from '../../Components/ListaContenido/ListaContenido.jsx';
 import styles from './Home.module.css'
+import Header from '../../Components/Header/Header.jsx';
 
 const Home = () => {
   // Inicializamo estado.
@@ -30,7 +31,9 @@ const Home = () => {
   }
 
   return (
-    <main className={styles.homeContainer}>
+   
+    <main className={styles.homeContainer}> 
+    <Header />
       {/* FILA 1: CONTENIDO POR VER */}
       <ListaContenido
         titulo='Por ver'
