@@ -1,0 +1,28 @@
+.seccionLista {
+  margin-bottom: 1.5rem; /* Reducimos el margen inferior */
+  padding: 0 1rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carrusel {
+  display: flex;
+  gap: 15px; /* Reducimos el espacio entre items */
+  overflow-x: auto;
+  padding: 5px 5px 15px 5px; /* Reducimos el padding vertical */
+  scroll-behavior: smooth;
+  
+  /* OCULTAR BARRA DE DESPLAZAMIENTO */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Ocultar barra en Chrome, Safari y Opera */
+.carrusel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ajuste de altura menor para los items del carrusel */
+.carrusel > div {
+  flex: 0 0 240px; /* Reducimos el ancho base de 280px a 240px */
+}
