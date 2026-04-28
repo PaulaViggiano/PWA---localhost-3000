@@ -21,6 +21,10 @@ const Home = () => {
   const porVer = items.filter(item => !item.Vista);
   const vistas = items.filter(item => item.Vista);
 
+  const agregarItem = (nuevoItem) => {
+    setItems([...items, nuevoItem]);
+  };
+
   const eliminarItem = (id) => {
     const confirmar = window.confirm("Estás seguro de eliminar este elemento?");
 
@@ -33,7 +37,7 @@ const Home = () => {
   return (
    
     <main className={styles.homeContainer}> 
-    <Header />
+    <Header onAgregarItem={agregarItem} />
       {/* FILA 1: CONTENIDO POR VER */}
       <ListaContenido
         titulo='Por ver'
@@ -51,7 +55,7 @@ const Home = () => {
       />
 
     </main>
-  )
-}
+  );
+};
 
 export default Home;

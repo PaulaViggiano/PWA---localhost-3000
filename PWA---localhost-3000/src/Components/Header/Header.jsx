@@ -4,17 +4,14 @@ import Titulo from '../Titulo/Titulo'
 import Boton from '../Boton/Boton.jsx';
 import Formulario from '../Formulario/Formulario.jsx';
 
-function Header () {
+function Header ({onAgregarItem}) {
 
   const [showForm, setShowForm] = useState(false);
 
-  const handleOpenForm = () => {
-    setShowForm(true);
-  };
-
-  const handleCloseForm = () => {
+  const handleNuevoItem = (nuevoItem) => {
+    onAgregarItem(nuevoItem);
     setShowForm(false);
-  };          
+  };         
 
     return ( 
             <nav className={styles.nav}>    
@@ -24,15 +21,15 @@ function Header () {
                    {showForm && 
                     <div className={styles.modalOverlay}>
                         <div className={styles.modalContent}>
-                            <Formulario onSubmit={handleCloseForm} />
-                            <button className={styles.closeBtn} onClick={handleCloseForm}>X</button>
+                            <Formulario onSubmit={handleNuevoItem} />
+                            <button className={styles.closeBtn} onClick={() => setShowForm(false)}>X</button>
                         </div>
                     </div>
                 }
                 <div className={styles.right}> 
                     <Boton 
                         texto='+' 
-                        onClick={handleOpenForm}
+                        onClick={() => setShowForm(true)}
                         clase='btn-agregar'
                     /> 
                 </div>
