@@ -93,3 +93,13 @@
 .acciones button {
   flex: 1;
 }
+
+.titulo {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;   /* Máximo de 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Agrega "..." si se corta */
+  font-weight: 600;
+  font-size: 1rem;
+}

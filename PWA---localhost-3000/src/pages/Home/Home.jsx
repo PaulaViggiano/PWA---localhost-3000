@@ -1,19 +1,15 @@
 import React,{ useState, useEffect } from 'react';
 import { initialData } from '../../Data/initialData';
-import  ListaContenido  from '../../Components/ListaContenido/ListaContenido.jsx';
-import styles from './Home.module.css'
+import ListaContenido from '../../Components/ListaContenido/ListaContenido.jsx';
+import styles from './Home.module.css';
 import Header from '../../Components/Header/Header.jsx';
 
 const Home = () => {
-  // Inicializamo estado.
-  // Peliculas/Series guardados en localStorage ó initialData
-  const [items, setItems] = useState (() => {
+  const [items, setItems] = useState(() => {
     const itemsGuardados = localStorage.getItem('peliculas-series');
-
     return itemsGuardados ? JSON.parse(itemsGuardados) : initialData;
   });
 
-  // Después de que 'items' se renderiza, ejecutamos el useEffect para guardarlo en el localStorage
   useEffect(() => {
     localStorage.setItem('peliculas-series', JSON.stringify(items));
   }, [items]);
@@ -26,34 +22,39 @@ const Home = () => {
   };
 
   const eliminarItem = (id) => {
-    const confirmar = window.confirm("Estás seguro de eliminar este elemento?");
-
-    if(confirmar){
+    const confirmar = window.confirm("¿Estás seguro de eliminar este elemento?");
+    if (confirmar) {
       const nuevaLista = items.filter(item => item.Id !== id);
       setItems(nuevaLista);
     }
-  }
+  };
+
+  const toggleVista = (id) => {
+    const nuevaLista = items.map((item) =>
+      item.Id === id ? { ...item, Vista: !item.Vista } : item
+    );
+    setItems(nuevaLista);
+  };
 
   return (
-   
     <main className={styles.homeContainer}> 
-    <Header onAgregarItem={agregarItem} />
-      {/* FILA 1: CONTENIDO POR VER */}
+      <Header onAgregarItem={agregarItem} />
+
       <ListaContenido
-        titulo='Por ver'
+        titulo="Por ver"
         items={porVer}
-        mensajeVacio='No tienes peliculas o series pendientes. Agrega una!'
+        mensajeVacio="No tienes películas o series pendientes. ¡Agrega una!"
         onEliminar={eliminarItem}
+        onToggleVista={toggleVista}
       />
 
-      {/* FILA 2: CONTENIDO VISTO */}
       <ListaContenido
-        titulo='Ya vistas'
+        titulo="Ya vistas"
         items={vistas}
-        mensajeVacio='Aún no has visto nada. Mira una pelicula!'
+        mensajeVacio="Aún no has visto nada. ¡Mira una película!"
         onEliminar={eliminarItem}
+        onToggleVista={toggleVista}
       />
-
     </main>
   );
 };
