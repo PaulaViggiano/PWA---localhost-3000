@@ -1,0 +1,97 @@
+.busqueda {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .busqueda {
+    flex-direction: row;
+  }
+}
+
+/* INPUT */
+.inputWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  background: #f9fafb; /* gris muy claro */
+  border: 1px solid #cbd5e1; /* gris medio */
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #1e293b; /* gris oscuro */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inputWrapper input::placeholder {
+  color: #64748b; /* gris azulado */
+}
+
+.inputWrapper input:focus {
+  outline: none;
+  border-color: #2563eb; /* azul fuerte */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8; /* gris azulado */
+  pointer-events: none;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.clearBtn:hover {
+  color: #2563eb; /* azul fuerte */
+}
+
+/* SELECT */
+.selectWrapper {
+  position: relative;
+}
+
+.selectWrapper select {
+  appearance: none;
+  padding: 0.75rem 2rem 0.75rem 1rem;
+  background: #f9fafb;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #1e293b;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.selectWrapper select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+.arrow {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #94a3b8;
+}
