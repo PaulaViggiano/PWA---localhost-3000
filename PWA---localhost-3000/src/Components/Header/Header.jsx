@@ -1,40 +1,35 @@
-import React, {useState} from 'react';
-import styles from './Header.module.css';
-import Titulo from '../Titulo/Titulo'
-import Boton from '../Boton/Boton.jsx';
-import Formulario from '../Formulario/Formulario.jsx';
+import React, { useState } from "react";
+import Formulario from "../Formulario/Formulario";
+import Modal from "../Modal/Modal";
+import styles from "./Header.module.css";
+import Boton  from "../Boton/Boton";
 
-function Header ({onAgregarItem}) {
-
+const Header = ({ onAgregarItem }) => {
   const [showForm, setShowForm] = useState(false);
 
-  const handleNuevoItem = (nuevoItem) => {
-    onAgregarItem(nuevoItem);
-    setShowForm(false);
-  };         
-
-    return ( 
-            <nav className={styles.nav}>    
-                <div className={styles.left}> 
-                    <Titulo texto='Peliculas Y Series' />
-                </div>
-                   {showForm && 
-                    <div className={styles.modalOverlay}>
-                        <div className={styles.modalContent}>
-                            <Formulario onSubmit={handleNuevoItem} />
-                            <button className={styles.closeBtn} onClick={() => setShowForm(false)}>X</button>
-                        </div>
-                    </div>
-                }
-                <div className={styles.right}> 
+  return (
+    <header className={styles.header}>
+      <nav className={styles.nav}>
+        <h2>Películas y Series</h2>
+         <div className={styles.right}> 
                     <Boton 
                         texto='Agregar Pelicula/Serie' 
                         onClick={() => setShowForm(true)}
                         clase='btnAgregar'
                     /> 
-                </div>
-            </nav>  
-            );
-}
+        </div>
+      </nav>
+
+      <Modal isOpen={showForm} onClose={() => setShowForm(false)}>
+        <Formulario
+          onSubmit={(nuevoItem) => {
+            onAgregarItem(nuevoItem);
+            setShowForm(false); // cerrar modal al guardar
+          }}
+        />
+      </Modal>
+    </header>
+  );
+};
 
 export default Header;

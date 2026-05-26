@@ -1,44 +1,54 @@
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    
-}
 /* Header.module.css */
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* mejor distribución */
+  padding: 12px 24px;
+  background-color: #06213b; /* azul elegante */
+  color: white;
+}
+
+/* Fondo del modal */
 .modalOverlay {
-  position: fixed;       /* se superpone a toda la pantalla */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.6); /* fondo oscuro semitransparente */
+  position: fixed;
+  inset: 0; /* reemplaza top/left/width/height */
+  background-color: rgba(0,0,0,0.55);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;         /* asegura que quede encima de todo */
+  z-index: 1000;
+  animation: fadeIn 0.3s ease; /* animación suave */
 }
 
+/* Contenido del modal */
 .modalContent {
   background: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
+  padding: 28px 32px;
+  border-radius: 12px;
   min-width: 320px;
   max-width: 600px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* sombra elegante */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
   position: relative;
+  animation: scaleIn 0.3s ease;
 }
 
+/* Botón de cierre */
 .closeBtn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   background: crimson;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.closeBtn:hover {
+  background-color: #b71c1c;
 }

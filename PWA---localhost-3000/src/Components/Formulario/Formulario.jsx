@@ -1,8 +1,14 @@
-import React, {useState} from "react";
-import styles from './Formulario.module.css';
-import Boton from '../Boton/Boton';
+import React, { useState } from "react";
+import styles from "./Formulario.module.css";
+import Boton from "../Boton/Boton";
 
 function Formulario({ onSubmit }) {
+  const [titulo, setTitulo] = useState("");
+  const [director, setDirector] = useState("");
+  const [anio, setAnio] = useState("");
+  const [genero, setGenero] = useState("Acción");
+  const [popularidad, setPopularidad] = useState("");
+  const [tipo, setTipo] = useState("Pelicula");
 
     const [titulo, setTitulo] = useState('');
     const [director, setDirector] = useState('');
@@ -26,15 +32,15 @@ function Formulario({ onSubmit }) {
     };
 
     onSubmit(nuevoItem);
-    //Limpiamos el formulario
-    setTitulo('');
-    setDirector('');
-    setAnio('');
-    setGenero('Accion');
-    setPopularidad('');
-    setTipo('Pelicula');
 
-    };  
+    // Limpiamos el formulario
+    setTitulo("");
+    setDirector("");
+    setAnio("");
+    setGenero("Acción");
+    setPopularidad("");
+    setTipo("Pelicula");
+  };
 
     return (
         <div className={styles.formContainer}>
@@ -119,7 +125,40 @@ function Formulario({ onSubmit }) {
                  <Boton texto='Guardar' variante="agregar" type="submit" />
             </form>
         </div>
-    )
+
+        <div className={styles.row}>
+          <label>
+            Género:
+            <select
+              value={genero}
+              onChange={(e) => setGenero(e.target.value)}
+              required
+            >
+              <option value="Acción">Acción</option>
+              <option value="Comedia">Comedia</option>
+              <option value="Terror">Terror</option>
+              <option value="Romance">Romance</option>
+              <option value="Fantasía">Fantasía</option>
+            </select>
+          </label>
+
+          <label>
+            Tipo:
+            <select
+              value={tipo}
+              onChange={(e) => setTipo(e.target.value)}
+              required
+            >
+              <option value="Pelicula">Película</option>
+              <option value="Serie">Serie</option>
+            </select>
+          </label>
+        </div>
+
+        <Boton texto="Guardar" variante="primary" type="submit"/>
+      </form>
+    </div>
+  );
 }
 
 export default Formulario;
