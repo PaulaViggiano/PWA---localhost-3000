@@ -13,8 +13,7 @@ function Formulario({ onSubmit }) {
     
     const handleSubmit = (e) => {
         e.preventDefault(); // evita recargar la página
-        onSubmit();         // cierra el formulario
-
+        
         const nuevoItem = {
         Id: Date.now(),
         Titulo: titulo,
@@ -117,7 +116,7 @@ function Formulario({ onSubmit }) {
                             </select>
                     </label>
                  </div>
-                 <Boton text="Guardar" class="btn-guardar" />
+                 <Boton texto='Guardar' variante="agregar" type="submit" />
             </form>
         </div>
     )

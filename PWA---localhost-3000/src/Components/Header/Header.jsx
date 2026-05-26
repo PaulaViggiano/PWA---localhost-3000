@@ -28,9 +28,9 @@ function Header ({onAgregarItem}) {
                 }
                 <div className={styles.right}> 
                     <Boton 
-                        texto='+' 
+                        texto='Agregar Pelicula/Serie' 
                         onClick={() => setShowForm(true)}
-                        clase='btn-agregar'
+                        clase='btnAgregar'
                     /> 
                 </div>
             </nav>  

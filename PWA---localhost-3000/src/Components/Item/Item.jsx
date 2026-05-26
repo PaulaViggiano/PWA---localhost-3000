@@ -35,7 +35,7 @@ const Item = ({item, onEliminar}) => {
                 <Boton
                     texto='Eliminar'
                     onClick={() => onEliminar(Id)}
-                    clase='btn-danger'
+                    clase='btnDanger'
                 />
             </div>
         </div>
