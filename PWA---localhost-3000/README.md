@@ -1,16 +1,35 @@
-# React + Vite
+# Programación Web Avanzada 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Trabajo Práctico Obligatorio: REACT 
+## Películas y Series (React + Vite)
 
-Currently, two official plugins are available:
+## Integrantes: 
+- Britos Gabriel - FAI 5629 - Developer
+- Veronica Lopez - FAI 5481 - Developer
+- Paula Viggiano - FAI 5516 - Project Manager 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+    <   -   -   -   -   >
 
-## React Compiler
+## Descripción del Proyecto 
+Aplicación web desarrollada con **React + Vite** que permite:
+- Agregar películas y series a una lista.
+- Filtrar por título, director o género.
+- Marcar como vistas o pendientes.
+- Ordenar por año y rating (ascendente/descendente).
+- Persistencia de datos en `localStorage`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El objetivo es tener un gestor simple y moderno para organizar lo que queremos ver.
 
-## Expanding the ESLint configuration
+   <   -   -   -   -   >
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Instalación y ejecución
+
+# 1. Clonar el repositorio
+git clone https://github.com/PaulaViggiano/PWA---localhost-3000.git
+cd PWA---localhost-3000/PWA---localhost-3000
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Ejecutar en modo desarrollo
+npm run dev
