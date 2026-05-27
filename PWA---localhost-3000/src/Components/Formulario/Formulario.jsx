@@ -96,11 +96,15 @@ function Formulario({ onSubmit }) {
               onChange={(e) => setGenero(e.target.value)}
               required
             >
-              <option value="Acción">Acción</option>
-              <option value="Comedia">Comedia</option>
-              <option value="Terror">Terror</option>
-              <option value="Romance">Romance</option>
-              <option value="Fantasía">Fantasía</option>
+               <option value="Acción">Acción</option>
+               <option value="Comedia">Comedia</option>
+               <option value="Drama">Drama</option>
+               <option value="Terror">Terror</option>
+               <option value="Ciencia Ficción">Ciencia Ficción</option>
+               <option value="Romance">Romance</option>
+               <option value="Documental">Documental</option>
+               <option value="Animación">Animación</option>
+               <option value="Fantasía">Fantasía</option>
             </select>
           </label>
 

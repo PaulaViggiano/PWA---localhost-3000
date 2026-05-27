@@ -22,20 +22,27 @@
 }
 
 /* Variante para eliminar (Danger) */
-.btn-danger {
+.btnDanger {
   background-color: #dc3545;
 }
 
-.btn-danger:hover {
+.btnDanger:hover {
   background-color: #a71d2a;
 }
 
 /* Variante para estados secundarios o edición */
-.btn-secondary {
+.btnSecondary {
   background-color: #6c757d;
 }
 
-/* variante para el boton de agregar*/ 
-/* .btn-agregar {
- 
-} */
+.btnSecondary:hover {
+  background-color: #545b62;
+}
+
+.btnAgregar {
+  background-color: #28a745;
+}
+
+.btnAgregar:hover {
+  background-color: #218838;
+}

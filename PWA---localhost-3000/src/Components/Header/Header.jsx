@@ -13,9 +13,9 @@ const Header = ({ onAgregarItem }) => {
         <h2>Películas y Series</h2>
          <div className={styles.right}> 
                     <Boton 
-                        texto='+' 
+                        texto='Agregar' 
                         onClick={() => setShowForm(true)}
-                        variante='btn-agregar'
+                        variante='agregar'
                     /> 
         </div>
       </nav>
