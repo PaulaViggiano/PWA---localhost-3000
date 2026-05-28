@@ -1,0 +1,21 @@
+:root {
+  --primary-color: #4F46E5; /* Un azul/índigo moderno */
+  --primary-hover: #4338CA;
+  --bg-color: #F3F4F6; /* Gris muy claro para el fondo */
+  --card-bg: #FFFFFF; /* Blanco puro para las tarjetas */
+  --text-main: #1F2937; /* Gris oscuro para textos (menos agresivo que el negro puro) */
+  --text-muted: #6B7280; /* Gris medio para textos secundarios */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
