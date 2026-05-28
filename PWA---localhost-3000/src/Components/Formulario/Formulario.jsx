@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Formulario.module.css";
 import Boton from "../Boton/Boton";
 
-function Formulario({ onSubmit }) {
+
+function Formulario({ onSubmit, itemAEditar }) {
   const [titulo, setTitulo] = useState("");
   const [director, setDirector] = useState("");
   const [anio, setAnio] = useState("");
@@ -10,18 +11,39 @@ function Formulario({ onSubmit }) {
   const [popularidad, setPopularidad] = useState("");
   const [tipo, setTipo] = useState("Pelicula");
 
+  useEffect(() => {
+    if (itemAEditar) {
+      // Si recibimos un item, llenamos los inputs con sus datos
+      setTitulo(itemAEditar.Titulo);
+      setDirector(itemAEditar.Director);
+      setAnio(itemAEditar.Anio);
+      setGenero(itemAEditar.Genero);
+      setPopularidad(itemAEditar.Popularidad);
+      setTipo(itemAEditar.Tipo);
+    } else {
+      // Si es null (nuevo item), limpiamos los inputs
+      setTitulo("");
+      setDirector("");
+      setAnio("");
+      setGenero("Acción");
+      setPopularidad("");
+      setTipo("Pelicula");
+    }
+  }, [itemAEditar]); 
+  // El [itemAEditar] al final le dice a React: "Ejecuta este código cada vez que la prop itemAEditar cambie".
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const nuevoItem = {
-      Id: Date.now(),
+      Id: itemAEditar ? itemAEditar : Date.now(),
       Titulo: titulo,
       Director: director,
       Anio: parseInt(anio),
       Genero: genero,
       Popularidad: parseInt(popularidad),
       Tipo: tipo,
-      Vista: false,
+      Vista: itemAEditar ? itemAEditar.Vista : false,
     };
 
     onSubmit(nuevoItem);
@@ -37,7 +59,7 @@ function Formulario({ onSubmit }) {
 
   return (
     <div className={styles.formContainer}>
-      <h1>Nueva Película/Serie</h1>
+      <h1>{itemAEditar ? "Editar Película/Serie" : "Nueva Película/Serie"}</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Nombre:
@@ -96,11 +118,15 @@ function Formulario({ onSubmit }) {
               onChange={(e) => setGenero(e.target.value)}
               required
             >
-              <option value="Acción">Acción</option>
-              <option value="Comedia">Comedia</option>
-              <option value="Terror">Terror</option>
-              <option value="Romance">Romance</option>
-              <option value="Fantasía">Fantasía</option>
+               <option value="Acción">Acción</option>
+               <option value="Comedia">Comedia</option>
+               <option value="Drama">Drama</option>
+               <option value="Terror">Terror</option>
+               <option value="Ciencia Ficción">Ciencia Ficción</option>
+               <option value="Romance">Romance</option>
+               <option value="Documental">Documental</option>
+               <option value="Animación">Animación</option>
+               <option value="Fantasía">Fantasía</option>
             </select>
           </label>
 

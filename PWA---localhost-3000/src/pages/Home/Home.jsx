@@ -5,12 +5,17 @@ import styles from './Home.module.css';
 import Header from '../../Components/Header/Header.jsx';
 import Busqueda from '../../Components/Busqueda/Busqueda.jsx';
 import Ordenamiento from '../../Components/Ordenamiento/Ordenamiento.jsx';
+import Modal from '../../Components/Modal/Modal.jsx';
+import Formulario from '../../Components/Formulario/Formulario.jsx';
 
 const Home = () => {
   const [filtro, setFiltro] = useState('');
   const [campoFiltro, setCampoFiltro] = useState('search');
   const [ordenCampo, setOrdenCampo] = useState('anio');       // 'anio' o 'rating'
   const [ordenDireccion, setOrdenDireccion] = useState('asc'); // 'asc' o 'desc'
+  const [itemAEditar, setItemAEditar] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const [items, setItems] = useState(() => {
     const itemsGuardados = localStorage.getItem('peliculas-series');
@@ -40,6 +45,33 @@ const Home = () => {
     setItems(nuevaLista);
   };
 
+  //FUNCION PARA ABRIR EL MODAL EN MODO EDICION
+  const iniciarEdicion = (item) => {
+    setItemAEditar(item); //Guardamos el item completo en el estado
+    setIsModalOpen(true); // Abrimos el modal asumiendo que ya tiene este estado
+  }
+
+  const cerrarModal = () => {
+    setItemAEditar(null);
+    setIsModalOpen(false);
+  };
+
+  //Fn Para guardar los cambios
+  const guardarItem = (itemModificado) => {
+    if (itemAEditar) {
+      const nuevaLista = items.map(item => 
+        item.Id === itemModificado.Id ? itemModificado : item
+      );
+      setItems(nuevaLista);
+    } else {
+      //Si es null, estamos agregando uno nuevo
+      setItems([...items, {...itemModificado, Id: Date.now(), Vista: false }]);
+    }
+    //Limpiamos el estado y cerramos el modal
+    setItemAEditar(null);
+    setIsModalOpen(false);
+  }
+
   //  FILTRO DE BUSQUEDA
   const listaFiltrada = items.filter((item) => {
     const valorNormalizado = filtro.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -58,8 +90,8 @@ const Home = () => {
 
   //  ORDENAMIENTO
   const listaOrdenada = [...listaFiltrada].sort((a, b) => {
-    const campoA = ordenCampo === 'anio' ? Number(a.Anio) : Number(a.Rating);
-    const campoB = ordenCampo === 'anio' ? Number(b.Anio) : Number(b.Rating);
+    const campoA = ordenCampo === 'anio' ? Number(a.Anio) : Number(a.Popularidad);
+    const campoB = ordenCampo === 'anio' ? Number(b.Anio) : Number(b.Popularidad);
     return ordenDireccion === 'asc' ? campoA - campoB : campoB - campoA;
   });
 
@@ -112,6 +144,7 @@ const conteoPorGenero = listaFiltrada.reduce((acc, item) => {
           mensajeVacio="No tienes películas o series pendientes. ¡Agrega una!"
           onEliminar={eliminarItem}
           onToggleVista={toggleVista}
+          onEditar={iniciarEdicion}
         />
 
         <ListaContenido
@@ -120,8 +153,16 @@ const conteoPorGenero = listaFiltrada.reduce((acc, item) => {
           mensajeVacio="Aún no has visto nada. ¡Mira una película!"
           onEliminar={eliminarItem}
           onToggleVista={toggleVista}
+          onEditar={iniciarEdicion}
         />
+
       </main>
+      <Modal isOpen={isModalOpen} onClose={cerrarModal}>
+        <Formulario
+          onSubmit={guardarItem} // Tu función que guarda o edita
+          itemAEditar={itemAEditar}
+        />
+      </Modal>
     </>
   );
 };

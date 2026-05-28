@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Formulario from "../Formulario/Formulario";
+import Titulo from "../Titulo/Titulo";
 import Modal from "../Modal/Modal";
 import styles from "./Header.module.css";
 import Boton  from "../Boton/Boton";
@@ -10,12 +11,12 @@ const Header = ({ onAgregarItem }) => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <h2>Películas y Series</h2>
+        <Titulo texto="Películas y Series" />
          <div className={styles.right}> 
                     <Boton 
-                        texto='+' 
+                        texto='Agregar' 
                         onClick={() => setShowForm(true)}
-                        variante='btn-agregar'
+                        variante='agregar'
                     /> 
         </div>
       </nav>
