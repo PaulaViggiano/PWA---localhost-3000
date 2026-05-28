@@ -1,7 +1,7 @@
 import styles from './Item.module.css';
 import Boton from '../Boton/Boton.jsx';
 
-const Item = ({item, onEliminar, onToggleVista}) => {
+const Item = ({item, onEliminar, onToggleVista, onEditar}) => {
     // Obtengo cada propiedad de Item(pelicula/serie) en variables individuales
     const{ Titulo, Director, Anio, Genero, Popularidad, Tipo, Vista, Id } = item;
     // URL dinamica para imagen
@@ -32,6 +32,10 @@ const Item = ({item, onEliminar, onToggleVista}) => {
                 onClick={() => onToggleVista(Id)}
                 />
 
+                <Boton 
+                    texto="Editar" 
+                    onClick={() => onEditar(item)} 
+                />
 
                 <Boton
                     texto='Eliminar'

@@ -1,15 +1,17 @@
 .botonBase {
-  padding: 8px 16px;
+  flex: 1;
+  min-width: 80px;
+  padding: 8px 12px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: background-color 0.2s, transform 0.1s;
+  transition: background-color 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #007bff; /* Color primario por defecto */
+  background-color: #007bff; 
   color: white;
 }
 
@@ -21,7 +23,6 @@
   transform: scale(0.98);
 }
 
-/* Variante para eliminar (Danger) */
 .btnDanger {
   background-color: #dc3545;
 }
