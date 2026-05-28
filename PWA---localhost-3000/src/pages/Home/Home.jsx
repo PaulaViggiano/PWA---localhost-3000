@@ -58,8 +58,8 @@ const Home = () => {
 
   //  ORDENAMIENTO
   const listaOrdenada = [...listaFiltrada].sort((a, b) => {
-    const campoA = ordenCampo === 'anio' ? Number(a.Anio) : Number(a.Rating);
-    const campoB = ordenCampo === 'anio' ? Number(b.Anio) : Number(b.Rating);
+    const campoA = ordenCampo === 'anio' ? Number(a.Anio) : Number(a.Popularidad);
+    const campoB = ordenCampo === 'anio' ? Number(b.Anio) : Number(b.Popularidad);
     return ordenDireccion === 'asc' ? campoA - campoB : campoB - campoA;
   });
 
